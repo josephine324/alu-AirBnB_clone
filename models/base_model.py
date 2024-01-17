@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""The base model class which is going to act as a parent"""
+"""he base model class which is going to act as a parent"""
 
 import models
 from datetime import datetime
