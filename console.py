@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """
-    Define HBnB console.
+    efine HBnB console.
 """
 import cmd
 import re
