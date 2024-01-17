@@ -1,55 +1,28 @@
-# HBnB 🏨
+# AirBnB Clone Console Readme
+The objective of this project is to deploy a simplified version of the AirBnB website on a server. While it will not encompass all the features of the original platform, it will encompass enough fundamental concepts to serve as a foundation for higher-level programming.
 
-HBnB is a comprehensive web application that combines various components such as database storage, a back-end API, and front-end interfacing, all designed to replicate some functionalities of AirBnB.
-Project to be done in teams of 2 people but for me it is different because my teammate is doing BEL
+## Initial Step: Develop a Command Interpreter for Managing AirBnB Objects
+This initial step holds significant importance as it lays the groundwork for subsequent projects, including HTML/CSS templating, database storage, API integration, and front-end development.
 
------------
+## What is a Command Interpreter?
+Think of it as similar to the Shell, but tailored to a specific use-case. In our context, we aim to manage the objects within our project with the following capabilities:
 
-## Step 1 - The Console 🕹️
+* Create a new object (e.g., a new User or a new Place)
+* Retrieve an object from a file, a database, etc.
+* Perform operations on objects (e.g., counting, computing statistics, etc.)
+* Update attributes of an object
+* Delete an object
 
-### Description
+## Running the Console
+You can utilize the console in both interactive and non-interactive modes:
 
-* Create your data model
-* Manage (create, update, destroy, etc) objects via a console / command interpreter
-* Store and persist objects to a file (JSON file)
-
-The first piece is to manipulate a powerful storage system. This storage engine will give us an abstraction between “My object” and “How they are stored and persisted”. This means: from your console code (the command interpreter itself) and from the front-end and RestAPI you will build later, you won’t have to pay attention (take care) of how your objects are stored.
-
-This abstraction will also allow you to change the type of storage easily without updating all of your codebase.
-
-The console will be a tool to validate this storage engine
-
-
-### Relevant Files And Directories
-
-* `models:` directory will contain all classes used for the entire project. A class, called “model” in a OOP * project is the representation of an object/instance.
-* `tests:` directory will contain all unit tests.
-* `console.py:` file is the entry point of our command interpreter.
-* `models/base_model.py:` file is the base class of all our models. It contains common elements: .attributes: id, created_at and updated_at .methods: save() and to_json()
-* `models/engine:` directory will contain all storage classes (using the same prototype). For the moment you will have only one: file_storage.py.
-
-
-### Using The Console
-
-* `Run the console:` ./console.py
-* `Quit the console:` (hbnb) quit
-* `Display the help for a command:` (hbnb) help <command>
-* `Show an object:` (hbnb) show <class> <id> or (hbnb) <class>.show(<id>)
-* `Destroy an object:` (hbnb) destroy <class> <id> or (hbnb) <class>.destroy(<id>)
-* `Show all objects, or all instances of a class:` (hbnb) all or (hbnb) all <class>
-* `Update an attribute of an object:` (hbnb) update <class> <id> <attribute name> "<attribute value>" or (hbnb) <class>.update(<id>, <attribute name>, "<attribute value>")
-
-
-### Examples 
-
-#### Interactive Mode:
-
-```
+Interactive mode:
+```bash
 $ ./console.py
 (hbnb) help
 
 Documented commands (type help <topic>):
-===================================
+========================================
 EOF  help  quit
 
 (hbnb) 
@@ -58,14 +31,13 @@ EOF  help  quit
 $
 ```
 
-#### Non-Interactive Mode:
-
-```
+Non-interactive mode (similar to the C Shell project):
+```bash
 $ echo "help" | ./console.py
 (hbnb)
 
 Documented commands (type help <topic>):
-==================================
+========================================
 EOF  help  quit
 (hbnb) 
 $
@@ -76,12 +48,86 @@ $ cat test_help | ./console.py
 (hbnb)
 
 Documented commands (type help <topic>):
-==================================
+========================================
 EOF  help  quit
 (hbnb) 
 $
 ```
 
----------------
-Josephine Mutesi
-Denys Ntwaritaganzwa
+## Supported Commands:
+* create - Create an object
+* show - Display an object based on its ID
+* destroy - Delete an object
+* all - Show all objects, either of one specific type or all types
+* update - Modify an instance based on the class name and ID
+* quit/EOF - Exit the console
+* help - Obtain descriptions of available commands
+
+To initiate the console, use the following command in your shell:
+
+```bash
+AirBnB_clone$ ./console.py
+(hbnb) 
+```
+
+## Create
+To create an object, use the following format: "create <ClassName>" (e.g., `create BaseModel`).
+
+```bash
+(hbnb) create BaseModel
+```
+
+## Show
+To display an instance based on its class name and ID, use the following format:
+
+```bash
+(hbnb) show BaseModel 1234-1234-1234
+```
+
+## Destroy
+To delete an instance of an object, use the format: "destroy <ClassName> <id>" (e.g., `destroy BaseModel 1234-1234-1234`).
+
+```bash
+(hbnb) destroy BaseModel 1234-1234-1234
+```
+
+## All
+To list all objects of a specific class or all classes, use one of the following formats:
+
+```bash
+(hbnb) all
+(hbnb) all State
+```
+
+## Update
+To update an instance based on its class name and ID, use the following format:
+
+```bash
+(hbnb) update BaseModel 1234-1234-1234 email "aibnb@holbertonschool.com"
+```
+
+## Quit
+To exit the console, type "quit" or use the EOF (End of File) command.
+
+## Help
+To get information about a specific command or see a list of available commands, use the "help" command followed by the command name (e.g., `help quit`).
+
+```bash
+(hbnb) help quit
+Defines quit option
+(hbnb)
+```
+
+## Supported Classes:
+* BaseModel
+* User
+* State
+* City
+* Amenity
+* Place
+* Review
+
+## Aututhors
+Josephine MUTESI - <j.mutesi@alustudent.com>
+* Denys NTWARITAGANZWA - <d.ntwaritag@alustudent.com>
+
