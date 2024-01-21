@@ -3,7 +3,7 @@
 from models.base_model import BaseModel
 
 
-lass Review(BaseModel):
+Class Review(BaseModel):
     """Class to manage reviews"""
     place_id = ""
     user_id = ""
