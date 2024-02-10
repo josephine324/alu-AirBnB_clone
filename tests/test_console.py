@@ -12,8 +12,11 @@ Unittest classes:
 """
 import os
 import sys
+import pep8
 import unittest
+from unittest.mock import patch
 from models import storage
+from models.engine.db_storage import DBStorage
 from models.engine.file_storage import FileStorage
 from console import HBNBCommand
 from io import StringIO
